@@ -1,25 +1,47 @@
 .button {
+    padding: 5px 24px;
+    background-color: #0066CC;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Montserrat';
+    color: white;
 }
 
 .disabled {
+    opacity: 50%;
+    background-color: #004D99;
+    color: #002E5C;
 }
 
 .secondary {
+    color: #0066CC;
+    border: 1px solid #0066CC;
+    background-color: transparent;
 }
 
 .default {
+    padding: 5px 24px;
+    background-color: #0066CC;
+    border: none;
+    border-radius: 3px;
 }
 
 .red {
+    background-color: #CC1439;
 }
 
 .default:hover {
+    background-color: #0080FF;
 }
 
 .red:hover {
+    background-color: #FF1A47;
 }
 
 .secondary:hover {
+    background-color: #E5F0FA;
 }
 
 

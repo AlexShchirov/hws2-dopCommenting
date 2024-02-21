@@ -8,7 +8,7 @@ type GreetingPropsType = {
     onBlur: () => void;
     onEnter: (e: KeyboardEvent<HTMLInputElement>) => void;
     error: string;
-    totalUsers: string;
+    totalUsers: number;
     lastUserName?: string;
 };
 
@@ -47,7 +47,7 @@ const Greeting: React.FC<GreetingPropsType> = ({
                 </div>
 
                 <button
-                    id={"hw3button"}
+                    id={"hw3-button"}
                     onClick={() => addUser(name)}
                     className={s.button}
                     disabled={!name.trim()}

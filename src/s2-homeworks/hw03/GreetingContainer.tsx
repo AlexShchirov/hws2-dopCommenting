@@ -40,8 +40,8 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     users,
     addUserCallback,
 }) => {
-    const [name, setName] = useState<string>("");
-    const [error, setError] = useState<string>("");
+    const [name, setName] = useState<string>("") ;
+    const [error, setError] = useState<string>("") ;
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.target.value);
@@ -58,12 +58,12 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
         pureOnBlur(name, setError);
     };
 
-    const onEnter = (e: any) => {
+    const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
         pureOnEnter(e, addUser);
     };
 
-    const totalUsers = users.length.toString();
-    const lastUserName = users.length > 0 ? users[users.length - 1].name : "";
+    const totalUsers = users.length;
+    const lastUserName = users[users.length - 1]?.name
 
     return (
         <Greeting
