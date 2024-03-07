@@ -2,10 +2,15 @@
 }
 
 .span {
+    line-height: 20px;
+    color: #0080FF;
 }
 
 .input {
+    line-height: 20px;
 }
 
 .pen {
+    color: #0080FF;
+    line-height: 20px;
 }
