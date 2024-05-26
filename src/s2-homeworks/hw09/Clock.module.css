@@ -1,14 +1,51 @@
-.buttonsContainer {
-}
-
 .clock {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 10px;
 }
 
 .watch {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .watch strong {
+    font-weight: bold;
 }
 
 .more {
+    font-size: 18px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.buttonsContainer {
+    margin-top: 15px;
+}
+
+.SuperButton_button__MXosr {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.SuperButton_button__MXosr:hover {
+    background-color: #0056b3;
+}
+
+.SuperButton_disabled__eC8BO {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
