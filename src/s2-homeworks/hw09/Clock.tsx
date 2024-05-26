@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SuperButton from "../hw04/common/c2-SuperButton/SuperButton";
 import { restoreState } from "../hw06/localStorage/localStorage";
 import s from "./Clock.module.css";
@@ -11,13 +11,16 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false);
 
     useEffect(() => {
-        // Запуск таймера при монтировании компонента
         start();
-        return () => stop(); // Очистка таймера при размонтировании компонента
+        // Очистка таймера при размонтировании компонента
+        return () => {
+            if (timerId) clearInterval(timerId);
+        };
     }, []);
 
     const start = () => {
-        stop(); // Останавливаем предыдущий таймер, если он был
+        // Если таймер уже запущен, не делаем ничего
+        if (timerId) return;
         const id = setInterval(() => {
             setDate(new Date());
         }, 1000);
@@ -34,37 +37,68 @@ function Clock() {
     const onMouseEnter = () => {
         setShow(true);
     };
-
     const onMouseLeave = () => {
         setShow(false);
     };
 
-    const stringTime = date.toLocaleTimeString(); // Форматирование времени
-    const stringDate = date.toLocaleDateString(); // Форматирование даты
-    const stringDay = date.toLocaleString("en-us", { weekday: "long" }); // День недели
-    const stringMonth = date.toLocaleString("en-us", { month: "long" }); // Месяц
+    const stringTime = date.toLocaleTimeString("en-US", {
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    });
+    const stringDate = date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+    });
+    const stringDay = date.toLocaleDateString("en-US", {
+        weekday: "long",
+    });
+    const stringMonth = date.toLocaleDateString("en-US", {
+        month: "long",
+    });
 
     return (
         <div className={s.clock}>
             <div
+                id={"hw9-watch"}
                 className={s.watch}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
             >
-                <span>{stringDay}</span>, <strong>{stringTime}</strong>
+                <span id={"hw9-day"}>{stringDay}</span>,{" "}
+                <span id={"hw9-time"}>
+                    <strong>{stringTime}</strong>
+                </span>
             </div>
 
-            {show && (
+            <div id={"hw9-more"}>
                 <div className={s.more}>
-                    <span>{stringMonth}</span>, <span>{stringDate}</span>
+                    {show ? (
+                        <>
+                            <span id={"hw9-month"}>{stringMonth}</span>,{" "}
+                            <span id={"hw9-date"}>{stringDate}</span>
+                        </>
+                    ) : (
+                        <br />
+                    )}
                 </div>
-            )}
+            </div>
 
             <div className={s.buttonsContainer}>
-                <SuperButton disabled={!!timerId} onClick={start}>
+                <SuperButton
+                    id={"hw9-button-start"}
+                    disabled={!!timerId}
+                    onClick={start}
+                >
                     start
                 </SuperButton>
-                <SuperButton disabled={!timerId} onClick={stop}>
+                <SuperButton
+                    id={"hw9-button-stop"}
+                    disabled={!timerId}
+                    onClick={stop}
+                >
                     stop
                 </SuperButton>
             </div>
