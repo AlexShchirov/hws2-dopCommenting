@@ -11,15 +11,12 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false);
 
     useEffect(() => {
-        start();
-        // Очистка таймера при размонтировании компонента
         return () => {
-            if (timerId) clearInterval(timerId);
+            stop();
         };
-    }, []);
+    }, []); 
 
     const start = () => {
-        // Если таймер уже запущен, не делаем ничего
         if (timerId) return;
         const id = setInterval(() => {
             setDate(new Date());
@@ -28,7 +25,7 @@ function Clock() {
     };
 
     const stop = () => {
-        if (timerId) {
+        if (timerId !== null) {
             clearInterval(timerId);
             setTimerId(null);
         }
@@ -47,11 +44,11 @@ function Clock() {
         minute: "2-digit",
         second: "2-digit",
     });
-    const stringDate = date.toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "2-digit",
+    const stringDate = date.toLocaleDateString("ru-RU", {
         day: "2-digit",
-    });
+        month: "2-digit",
+        year: "numeric",
+    }).replace(/\//g, '.');
     const stringDay = date.toLocaleDateString("en-US", {
         weekday: "long",
     });
