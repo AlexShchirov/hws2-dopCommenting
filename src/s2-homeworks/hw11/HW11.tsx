@@ -19,10 +19,7 @@ function HW11() {
         restoreState<number>("hw11-value2", 100)
     );
 
-    const change = (
-        event: React.ChangeEvent<HTMLInputElement>,
-        value: number[] | number
-    ) => {
+    const change = (event: Event, value: number[] | number) => {
         // пишет студент // если пришёл массив - сохранить значения в оба useState, иначе в первый+
         if (Array.isArray(value)) {
             setValue1(value[0]);
