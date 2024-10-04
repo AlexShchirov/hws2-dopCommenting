@@ -1,0 +1,60 @@
+.tech {
+    width: 50vw;
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.developer {
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.techHeader {
+    width: 50vw;
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.developerHeader {
+    color: rgb(0, 0, 0);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.row {
+    display: flex;
+    padding: 11px;
+    position: relative;
+}
+
+.row::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    background-color: #E5E5E5;
+    width: 100%;
+    bottom: 0;
+}
+
+.rowHeader {
+    display: flex;
+    background: rgb(229, 229, 229);
+    padding: 11px;
+}
+
+.arrow {
+    width: 8px;
+    height: 6px;
+    margin-left: 5px;
+}

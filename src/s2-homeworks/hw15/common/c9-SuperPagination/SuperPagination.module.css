@@ -1,0 +1,14 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+    gap: 24px;
+}
+
+.text1, .text2 {
+    color: rgb(13, 11, 12);
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+}
